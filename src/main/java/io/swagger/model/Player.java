@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Player
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T09:41:57.095Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T14:50:32.719Z[GMT]")
 
 
 public class Player   {
@@ -24,7 +24,7 @@ public class Player   {
   private GeoCoord position = null;
 
   @JsonProperty("team")
-  private String team = null;
+  private Integer team = null;
 
   public Player id(String id) {
     this.id = id;
@@ -65,7 +65,7 @@ public class Player   {
     this.position = position;
   }
 
-  public Player team(String team) {
+  public Player team(Integer team) {
     this.team = team;
     return this;
   }
@@ -76,11 +76,11 @@ public class Player   {
    **/
   @Schema(description = "")
   
-    public String getTeam() {
+    public Integer getTeam() {
     return team;
   }
 
-  public void setTeam(String team) {
+  public void setTeam(Integer team) {
     this.team = team;
   }
 

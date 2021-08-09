@@ -79,7 +79,7 @@ public class ServerGame {
 
             if(sign * c.captureState >= 100)
                 this.capturePoints.stream().filter((e) -> e.isInRange(coord,0.00000000001))
-                        .collect(Collectors.toList()).get(0).setTeam(BigDecimal.valueOf(team));
+                        .collect(Collectors.toList()).get(0).setTeam(team);
 
             sem.release();
 

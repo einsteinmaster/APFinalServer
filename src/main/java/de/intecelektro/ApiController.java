@@ -36,7 +36,7 @@ public class ApiController {
     public ResponseEntity<Void> handlerIsAtCapturepoint(String gameId, Player player){
         ServerGame game = (ServerGame) Database.GetDatabase().getGame(gameId);
 
-        int team = Integer.parseInt(player.getTeam());
+        int team = player.getTeam();
 
         try{
             game.playerAtGeoPoint(player.getPosition(),team);

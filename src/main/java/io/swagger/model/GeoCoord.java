@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * GeoCoord
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T09:41:57.095Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T14:50:32.719Z[GMT]")
 
 
 public class GeoCoord   {
@@ -27,7 +27,7 @@ public class GeoCoord   {
   private BigDecimal altitude = null;
 
   @JsonProperty("team")
-  private BigDecimal team = null;
+  private Integer team = null;
 
   public GeoCoord latitude(BigDecimal latitude) {
     this.latitude = latitude;
@@ -89,7 +89,7 @@ public class GeoCoord   {
     this.altitude = altitude;
   }
 
-  public GeoCoord team(BigDecimal team) {
+  public GeoCoord team(Integer team) {
     this.team = team;
     return this;
   }
@@ -100,12 +100,11 @@ public class GeoCoord   {
    **/
   @Schema(description = "")
   
-    @Valid
-    public BigDecimal getTeam() {
+    public Integer getTeam() {
     return team;
   }
 
-  public void setTeam(BigDecimal team) {
+  public void setTeam(Integer team) {
     this.team = team;
   }
 
