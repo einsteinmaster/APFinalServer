@@ -43,7 +43,7 @@ public class ApiController {
 
             return new ResponseEntity<Void>(HttpStatus.OK);
         }catch (NoSuchElementException exc){
-            return new ResponseEntity<Void>(HttpStatus.valueOf(457));
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         }
     }
 }
