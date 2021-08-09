@@ -42,8 +42,7 @@ public class ServerGame {
 
     private static int id_counter = 1;
     private final int id;
-    private final long gameBegin;
-    private static final long countDown = 100000;
+    private long gameEnd;
     private final List<CapturePoint> capturePoints;
     public static final int TEAM_A = 1;
     public static final int TEAM_B = 2;
@@ -51,7 +50,6 @@ public class ServerGame {
 
     public ServerGame() {
         id = id_counter++;
-        gameBegin = (new Date()).getTime() + countDown;
         capturePoints = new ArrayList<>();
     }
 
@@ -91,6 +89,7 @@ public class ServerGame {
 
     public void updateData(Game game) {
         setCapturePoints(game.getCapturePoints());
+        gameEnd = (new Date()).getTime() + game.getTimeLeft();
     }
 
     public void setCapturePoints(List<GeoCoord> coords) {
@@ -113,7 +112,7 @@ public class ServerGame {
     }
 
     public Integer getTimeLeft() {
-        long timeLeft = gameBegin - (new Date()).getTime();
+        long timeLeft = gameEnd - (new Date()).getTime();
         return (int) timeLeft;
     }
 
