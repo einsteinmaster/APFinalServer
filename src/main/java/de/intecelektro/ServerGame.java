@@ -3,6 +3,8 @@ package de.intecelektro;
 import io.swagger.model.Game;
 import io.swagger.model.GeoCoord;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.stream.Collectors;
@@ -77,6 +79,10 @@ public class ServerGame {
                 }
             }
 
+            if(sign * c.captureState >= 100)
+                this.capturePoints.stream().filter((e) -> e.isInRange(coord,0.00000000001))
+                        .collect(Collectors.toList()).get(0).setTeam(BigDecimal.valueOf(team));
+
             sem.release();
 
         } catch (InterruptedException e) {
@@ -97,6 +103,7 @@ public class ServerGame {
             capturePoint.setAltitude(c.getAltitude());
             capturePoint.setLatitude(c.getLatitude());
             capturePoint.setLongitude(c.getLongitude());
+            capturePoint.setTeam(c.getTeam());
             capturePoints.add(capturePoint);
         }
     }
