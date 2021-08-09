@@ -30,7 +30,7 @@ public class ServerGame {
         boolean isInRange(GeoCoord coord2, double range) {
             double dalt = (this.getAltitude().doubleValue() - coord2.getAltitude().doubleValue());
             double dlat = (this.getLatitude().doubleValue() - coord2.getLatitude().doubleValue());
-            double dlong = (this.getLogitude().doubleValue() - coord2.getLogitude().doubleValue());
+            double dlong = (this.getLongitude().doubleValue() - coord2.getLongitude().doubleValue());
 
             double distance = Math.sqrt(dalt * dalt + dlat * dlat + dlong * dlong);
 
@@ -96,7 +96,7 @@ public class ServerGame {
             CapturePoint capturePoint = new CapturePoint();
             capturePoint.setAltitude(c.getAltitude());
             capturePoint.setLatitude(c.getLatitude());
-            capturePoint.setLogitude(c.getLogitude());
+            capturePoint.setLongitude(c.getLongitude());
             capturePoints.add(capturePoint);
         }
     }
