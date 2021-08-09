@@ -64,21 +64,21 @@ public class ServerGame {
 
             sem.acquire();
 
-            CapturePoint c = capturePoints.stream().filter((e) -> e.isInRange(coord, 0.001)).findAny().get();
+            CapturePoint c = capturePoints.stream().filter((e) -> e.equals(coord)).findAny().get();
 
             int team_indep_capturestate = sign * c.captureState;
             if (team_indep_capturestate < 100) {
                 if (team_indep_capturestate > 0)
-                    c.captureState += sign;
+                    c.captureState += sign * 20;
                 else
-                    c.captureState += sign * 10;
+                    c.captureState += sign * 40;
                 if (sign * c.captureState >= 100) {
                     c.addHistory(team, (new Date()).getTime());
                 }
             }
 
             if(sign * c.captureState >= 100)
-                this.capturePoints.stream().filter((e) -> e.isInRange(coord,0.00000000001))
+                this.capturePoints.stream().filter((e) -> e.equals(coord))
                         .collect(Collectors.toList()).get(0).setTeam(team);
 
             sem.release();
