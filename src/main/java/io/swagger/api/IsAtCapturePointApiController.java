@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import de.intecelektro.ApiController;
 import io.swagger.model.Player;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,8 +50,7 @@ public class IsAtCapturePointApiController implements IsAtCapturePointApi {
     }
 
     public ResponseEntity<Void> isAtCapturePointGameIdPut(@DecimalMin("1")@Parameter(in = ParameterIn.PATH, description = "", required=true, schema=@Schema()) @PathVariable("gameId") String gameId,@Parameter(in = ParameterIn.DEFAULT, description = "asdf", required=true, schema=@Schema()) @Valid @RequestBody Player body) {
-        String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        return ApiController.getController().handlerIsAtCapturepoint(gameId,body);
     }
 
 }

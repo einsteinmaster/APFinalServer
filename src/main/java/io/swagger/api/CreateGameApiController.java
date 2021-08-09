@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import de.intecelektro.ApiController;
 import io.swagger.model.Game;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,17 +50,7 @@ public class CreateGameApiController implements CreateGameApi {
     }
 
     public ResponseEntity<Game> createGameMacIdPost(@DecimalMin("1")@Parameter(in = ParameterIn.PATH, description = "", required=true, schema=@Schema()) @PathVariable("macId") String macId,@Parameter(in = ParameterIn.DEFAULT, description = "asdf", required=true, schema=@Schema()) @Valid @RequestBody Game body) {
-        String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/json")) {
-            try {
-                return new ResponseEntity<Game>(objectMapper.readValue("{\n  \"score\" : 6,\n  \"id\" : \"id\",\n  \"capturePoints\" : [ {\n    \"altitude\" : 5.637376656633329,\n    \"latitude\" : 1.4658129805029452,\n    \"team\" : 2.3021358869347655,\n    \"longitude\" : 5.962133916683182\n  }, {\n    \"altitude\" : 5.637376656633329,\n    \"latitude\" : 1.4658129805029452,\n    \"team\" : 2.3021358869347655,\n    \"longitude\" : 5.962133916683182\n  } ],\n  \"timeLeft\" : 0\n}", Game.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<Game>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        return new ResponseEntity<Game>(HttpStatus.NOT_IMPLEMENTED);
+        return ApiController.getController().handlerCreateGame(body);
     }
 
 }
