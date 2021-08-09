@@ -1,117 +1,62 @@
 package io.swagger.model;
 
 import java.util.Objects;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.GeoCoord;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
 import javax.validation.constraints.*;
-
-/**
- * Game
- */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T09:41:57.095Z[GMT]")
+import io.swagger.v3.oas.annotations.media.Schema;
 
 
-public class Game   {
-  @JsonProperty("id")
-  private String id = null;
-
-  @JsonProperty("timeLeft")
-  private Integer timeLeft = null;
-
-  @JsonProperty("score")
-  private Integer score = null;
-
-  @JsonProperty("capturePoints")
-  @Valid
-  private List<GeoCoord> capturePoints = null;
-
-  public Game id(String id) {
-    this.id = id;
-    return this;
-  }
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2021-07-10T11:23:36.936Z[GMT]")public class Game   {
+  private String id = null;  private Integer timeLeft = null;  private Integer score = null;  private List<GeoCoord> capturePoints = new ArrayList<GeoCoord>();
 
   /**
-   * Get id
-   * @return id
    **/
-  @Schema(description = "")
   
-    public String getId() {
+  @Schema(description = "")
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
-
   public void setId(String id) {
     this.id = id;
   }
 
-  public Game timeLeft(Integer timeLeft) {
-    this.timeLeft = timeLeft;
-    return this;
-  }
-
   /**
-   * Get timeLeft
-   * @return timeLeft
    **/
-  @Schema(description = "")
   
-    public Integer getTimeLeft() {
+  @Schema(description = "")
+  @JsonProperty("timeLeft")
+  public Integer getTimeLeft() {
     return timeLeft;
   }
-
   public void setTimeLeft(Integer timeLeft) {
     this.timeLeft = timeLeft;
   }
 
-  public Game score(Integer score) {
-    this.score = score;
-    return this;
-  }
-
   /**
-   * Get score
-   * @return score
    **/
-  @Schema(description = "")
   
-    public Integer getScore() {
+  @Schema(description = "")
+  @JsonProperty("score")
+  public Integer getScore() {
     return score;
   }
-
   public void setScore(Integer score) {
     this.score = score;
   }
 
-  public Game capturePoints(List<GeoCoord> capturePoints) {
-    this.capturePoints = capturePoints;
-    return this;
-  }
-
-  public Game addCapturePointsItem(GeoCoord capturePointsItem) {
-    if (this.capturePoints == null) {
-      this.capturePoints = new ArrayList<GeoCoord>();
-    }
-    this.capturePoints.add(capturePointsItem);
-    return this;
-  }
-
   /**
-   * Get capturePoints
-   * @return capturePoints
    **/
+  
   @Schema(description = "")
-      @Valid
-    public List<GeoCoord> getCapturePoints() {
+  @JsonProperty("capturePoints")
+  public List<GeoCoord> getCapturePoints() {
     return capturePoints;
   }
-
   public void setCapturePoints(List<GeoCoord> capturePoints) {
     this.capturePoints = capturePoints;
   }
@@ -126,10 +71,10 @@ public class Game   {
       return false;
     }
     Game game = (Game) o;
-    return Objects.equals(this.id, game.id) &&
-        Objects.equals(this.timeLeft, game.timeLeft) &&
-        Objects.equals(this.score, game.score) &&
-        Objects.equals(this.capturePoints, game.capturePoints);
+    return Objects.equals(id, game.id) &&
+        Objects.equals(timeLeft, game.timeLeft) &&
+        Objects.equals(score, game.score) &&
+        Objects.equals(capturePoints, game.capturePoints);
   }
 
   @Override

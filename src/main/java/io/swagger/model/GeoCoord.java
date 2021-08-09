@@ -13,18 +13,21 @@ import javax.validation.constraints.*;
  * GeoCoord
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-07-12T15:26:34.001Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T09:41:57.095Z[GMT]")
 
 
 public class GeoCoord   {
   @JsonProperty("latitude")
   private BigDecimal latitude = null;
 
-  @JsonProperty("logitude")
-  private BigDecimal logitude = null;
+  @JsonProperty("longitude")
+  private BigDecimal longitude = null;
 
   @JsonProperty("altitude")
   private BigDecimal altitude = null;
+
+  @JsonProperty("team")
+  private BigDecimal team = null;
 
   public GeoCoord latitude(BigDecimal latitude) {
     this.latitude = latitude;
@@ -46,24 +49,24 @@ public class GeoCoord   {
     this.latitude = latitude;
   }
 
-  public GeoCoord logitude(BigDecimal logitude) {
-    this.logitude = logitude;
+  public GeoCoord longitude(BigDecimal longitude) {
+    this.longitude = longitude;
     return this;
   }
 
   /**
-   * Get logitude
-   * @return logitude
+   * Get longitude
+   * @return longitude
    **/
   @Schema(description = "")
   
     @Valid
-    public BigDecimal getLogitude() {
-    return logitude;
+    public BigDecimal getLongitude() {
+    return longitude;
   }
 
-  public void setLogitude(BigDecimal logitude) {
-    this.logitude = logitude;
+  public void setLongitude(BigDecimal longitude) {
+    this.longitude = longitude;
   }
 
   public GeoCoord altitude(BigDecimal altitude) {
@@ -86,6 +89,26 @@ public class GeoCoord   {
     this.altitude = altitude;
   }
 
+  public GeoCoord team(BigDecimal team) {
+    this.team = team;
+    return this;
+  }
+
+  /**
+   * Get team
+   * @return team
+   **/
+  @Schema(description = "")
+  
+    @Valid
+    public BigDecimal getTeam() {
+    return team;
+  }
+
+  public void setTeam(BigDecimal team) {
+    this.team = team;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,13 +120,14 @@ public class GeoCoord   {
     }
     GeoCoord geoCoord = (GeoCoord) o;
     return Objects.equals(this.latitude, geoCoord.latitude) &&
-        Objects.equals(this.logitude, geoCoord.logitude) &&
-        Objects.equals(this.altitude, geoCoord.altitude);
+        Objects.equals(this.longitude, geoCoord.longitude) &&
+        Objects.equals(this.altitude, geoCoord.altitude) &&
+        Objects.equals(this.team, geoCoord.team);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(latitude, logitude, altitude);
+    return Objects.hash(latitude, longitude, altitude, team);
   }
 
   @Override
@@ -112,8 +136,9 @@ public class GeoCoord   {
     sb.append("class GeoCoord {\n");
     
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
-    sb.append("    logitude: ").append(toIndentedString(logitude)).append("\n");
+    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    altitude: ").append(toIndentedString(altitude)).append("\n");
+    sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("}");
     return sb.toString();
   }

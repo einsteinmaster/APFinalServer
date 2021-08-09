@@ -1,85 +1,49 @@
 package io.swagger.model;
 
 import java.util.Objects;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.GeoCoord;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
 import javax.validation.constraints.*;
-
-/**
- * Player
- */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-08-09T09:41:57.095Z[GMT]")
+import io.swagger.v3.oas.annotations.media.Schema;
 
 
-public class Player   {
-  @JsonProperty("id")
-  private String id = null;
-
-  @JsonProperty("position")
-  private GeoCoord position = null;
-
-  @JsonProperty("team")
-  private String team = null;
-
-  public Player id(String id) {
-    this.id = id;
-    return this;
-  }
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaResteasyServerCodegen", date = "2021-07-10T11:23:36.936Z[GMT]")public class Player   {
+  private String id = null;  private GeoCoord position = null;  private String team = null;
 
   /**
-   * Get id
-   * @return id
    **/
-  @Schema(description = "")
   
-    public String getId() {
+  @Schema(description = "")
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
-
   public void setId(String id) {
     this.id = id;
   }
 
-  public Player position(GeoCoord position) {
-    this.position = position;
-    return this;
-  }
-
   /**
-   * Get position
-   * @return position
    **/
-  @Schema(description = "")
   
-    @Valid
-    public GeoCoord getPosition() {
+  @Schema(description = "")
+  @JsonProperty("position")
+  public GeoCoord getPosition() {
     return position;
   }
-
   public void setPosition(GeoCoord position) {
     this.position = position;
   }
 
-  public Player team(String team) {
-    this.team = team;
-    return this;
-  }
-
   /**
-   * Get team
-   * @return team
    **/
-  @Schema(description = "")
   
-    public String getTeam() {
+  @Schema(description = "")
+  @JsonProperty("team")
+  public String getTeam() {
     return team;
   }
-
   public void setTeam(String team) {
     this.team = team;
   }
@@ -94,9 +58,9 @@ public class Player   {
       return false;
     }
     Player player = (Player) o;
-    return Objects.equals(this.id, player.id) &&
-        Objects.equals(this.position, player.position) &&
-        Objects.equals(this.team, player.team);
+    return Objects.equals(id, player.id) &&
+        Objects.equals(position, player.position) &&
+        Objects.equals(team, player.team);
   }
 
   @Override
