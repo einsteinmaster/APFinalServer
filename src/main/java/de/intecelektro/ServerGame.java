@@ -58,8 +58,8 @@ public class ServerGame {
     }
 
     public boolean isInRange(GeoCoord c1, GeoCoord c2, double range){
-        double dlo = c1.getLongitude().doubleValue() - c2.getLongitude().doubleValue()
-        double dla = c1.getLatitude().doubleValue() - c2.getLatitude().doubleValue()
+        double dlo = c1.getLongitude().doubleValue() - c2.getLongitude().doubleValue();
+        double dla = c1.getLatitude().doubleValue() - c2.getLatitude().doubleValue();
         return dlo*dlo + dla*dla < range;
     }
 
