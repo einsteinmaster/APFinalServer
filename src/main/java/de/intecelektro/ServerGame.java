@@ -60,7 +60,7 @@ public class ServerGame {
     public void playerAtGeoPoint(GeoCoord coord, int team) {
         int sign = -2 * team + 3;
 
-        try {
+        //try {
 
             //sem.aquire();
 
@@ -83,8 +83,8 @@ public class ServerGame {
 
             //sem.release();
 
-        } catch (InterruptedException e) {
-        }
+        //} catch (InterruptedException e) {
+        //}
     }
 
     public void updateData(Game game) {
