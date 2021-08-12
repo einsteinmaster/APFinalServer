@@ -36,12 +36,11 @@ public class ApiController {
     public ResponseEntity<Void> handlerIsAtCapturepoint(String gameId, Player player){
         ServerGame game = (ServerGame) Database.GetDatabase().getGame(gameId);
         int team = player.getTeam();
-        try{
+        //try{
             game.playerAtGeoPoint(player.getPosition(),team);
             return new ResponseEntity<Void>(HttpStatus.OK);
-        }catch (NoSuchElementException exc){
-            throw;
+        //}catch (NoSuchElementException exc){
             //return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-        }
+        //}
     }
 }
