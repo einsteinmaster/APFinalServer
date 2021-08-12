@@ -62,7 +62,7 @@ public class ServerGame {
 
         try {
 
-            sem.acquire();
+            //sem.aquire();
 
             CapturePoint c = capturePoints.stream().filter((e) -> e.equals(coord)).findAny().get();
 
@@ -81,7 +81,7 @@ public class ServerGame {
                 this.capturePoints.stream().filter((e) -> e.equals(coord))
                         .collect(Collectors.toList()).get(0).setTeam(team);
 
-            sem.release();
+            //sem.release();
 
         } catch (InterruptedException e) {
         }
