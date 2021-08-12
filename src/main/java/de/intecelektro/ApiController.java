@@ -40,7 +40,8 @@ public class ApiController {
             game.playerAtGeoPoint(player.getPosition(),team);
             return new ResponseEntity<Void>(HttpStatus.OK);
         }catch (NoSuchElementException exc){
-            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+            throw;
+            //return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         }
     }
 }
