@@ -57,6 +57,16 @@ public class ServerGame {
         return "" + id;
     }
 
+    public boolean isInRange(GeoCoord c1, GeoCoord c2, double range){
+        double dlo = c1.getLongitude().doubleValue() - c2.getLongitude().doubleValue()
+        double dla = c1.getLatitude().doubleValue() - c2.getLatitude().doubleValue()
+        return dlo*dlo + dla*dla < range;
+    }
+
+    public boolean isInRange(GeoCoord c1, GeoCoord c2){
+        return isInRange(c1,c2,0.0000001);
+    }
+
     public void playerAtGeoPoint(GeoCoord coord, int team) {
         int sign = -2 * team + 3;
 
@@ -64,7 +74,7 @@ public class ServerGame {
 
             //sem.aquire();
 
-            CapturePoint c = capturePoints.stream().filter((e) -> e.equals(coord)).findAny().get();
+            CapturePoint c = capturePoints.stream().filter((e) -> isInRange(e,coord)).findAny().get();
 
             int team_indep_capturestate = sign * c.captureState;
             if (team_indep_capturestate < 100) {
@@ -78,7 +88,7 @@ public class ServerGame {
             }
 
             if(sign * c.captureState >= 100)
-                this.capturePoints.stream().filter((e) -> e.equals(coord))
+                this.capturePoints.stream().filter((e) -> isInRange(e,coord))
                         .collect(Collectors.toList()).get(0).setTeam(team);
 
             //sem.release();
