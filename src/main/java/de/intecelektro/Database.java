@@ -4,6 +4,9 @@ import io.swagger.model.Game;
 
 import java.util.ArrayList;
 
+/**
+ * Simple MockDatabase storing data only in program-memory.
+ */
 public class Database implements IDataBase {
     private static Database gDataBase = null;
     public static IDataBase GetDatabase(){
